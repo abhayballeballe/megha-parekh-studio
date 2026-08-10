@@ -1,0 +1,5 @@
+import type { ReactNode } from "react";
+import { cn } from "@/lib/utils";
+import { Reveal } from "@/components/site/Reveal";
+export function SectionIntro({ eyebrow, title, children, align = "left", className, titleClassName }: { eyebrow?: string; title: ReactNode; children?: ReactNode; align?: "left" | "center"; className?: string; titleClassName?: string }) { return <Reveal className={cn("max-w-2xl", align === "center" && "mx-auto text-center", className)}>{eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}<h2 className={cn("mt-4 text-balance text-3xl leading-[1.12] sm:text-4xl md:text-[2.85rem]", titleClassName)}>{title}</h2>{children ? <div className="mt-5 space-y-4 text-base leading-relaxed text-muted-foreground">{children}</div> : null}</Reveal>; }
+export function Section({ children, className, id, bordered = true }: { children: ReactNode; className?: string; id?: string; bordered?: boolean }) { return <section id={id} className={cn("px-5 py-20 sm:px-8 sm:py-24 lg:py-28", bordered && "rule-top", className)}><div className="mx-auto w-full max-w-6xl">{children}</div></section>; }

@@ -1,0 +1,3 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+export type FAQItem = { q: string; a: string };
+export function FAQAccordion({ items }: { items: FAQItem[] }) { return <Accordion type="single" collapsible className="w-full border-t border-border">{items.map((item, i) => <AccordionItem key={item.q} value={`item-${i}`} className="border-b border-border"><AccordionTrigger className="py-6 text-left font-display text-lg leading-snug hover:no-underline sm:text-xl">{item.q}</AccordionTrigger><AccordionContent className="max-w-3xl pb-7 text-sm leading-relaxed text-muted-foreground sm:text-base">{item.a}</AccordionContent></AccordionItem>)}</Accordion>; }
